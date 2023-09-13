@@ -1,20 +1,3 @@
-// JavaScript to make the switch interactive
-document.getElementById('calendar-toggle').addEventListener('change', function () {
-    const calendarLabel = document.getElementById('calendar-label');
-    const isChecked = this.checked;
-
-    if (isChecked) {
-        // Switch to Nepali calendar
-        calendarLabel.innerText = 'Nepali';
-        // Perform actions for Nepali calendar
-    } else {
-        // Switch to Gregorian calendar
-        calendarLabel.innerText = 'Gregorian';
-        // Perform actions for Gregorian calendar
-    }
-});
-
-
 // Sample data for the chart (in Nepali calendar)
 const dataNepali = [
     { year: 2076, value: 50 },
@@ -111,7 +94,12 @@ function convertToGregorian(dataNepali) {
 
     dataNepali.forEach((row) => {
         startDateNepali = new NepaliDate(row.year, 0, 1);
-        endDateNepali = new NepaliDate(row.year, 11, 1);
+        // Chaitra can have 30 or 31 days.
+        // Setting it to 31 on a year with 30 rolls over to 1 Boishakh.
+        endDateNepali = new NepaliDate(row.year, 11, 31);
+        if(endDateNepali.getDate() === 1){
+            endDateNepali = new NepaliDate(row.year, 11, 30);
+        }
         startDateGreg = startDateNepali.toJsDate();
         endDateGreg = endDateNepali.toJsDate();
         dateRangeGreg = getDates(startDateGreg, endDateGreg);
