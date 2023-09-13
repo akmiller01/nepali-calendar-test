@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#chart-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#chart {
+    margin-top: 20px;
+}
+
+#toggle {
+    margin-top: 20px;
+}
+
+#calendar-label {
+    font-weight: bold;
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Style the switch container and label */
+.toggle-switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    vertical-align: middle; /* Align the switch vertically with the text */
+}
+
+.switch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Style the switch handle (inner slider) */
+.switch::before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    left: 2px;
+    top: 2px;
+    transition: transform 0.3s;
+}
+
+/* Style the switch when it's in the "on" state */
+input[type="checkbox"]:checked + .switch {
+    background-color: #4CAF50;
+}
+
+/* Move the switch handle to the right when it's in the "on" state */
+input[type="checkbox"]:checked + .switch::before {
+    transform: translateX(30px);
+}
+
+/* Style the label text */
+#calendar-label {
+    vertical-align: middle; /* Align the text vertically with the switch */
+    margin-left: 10px; /* Adjust the spacing between the switch and text */
+}

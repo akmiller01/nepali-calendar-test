@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Bar Chart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Interactive Bar Chart</h1>
+    <div id="chart-container">
+        <div id="chart">
+            <!-- Bar chart will be rendered here -->
+        </div>
+        <div class="toggle-switch">
+            <input type="checkbox" id="calendar-toggle">
+            <label for="calendar-toggle" class="switch"></label>
+        </div>
+        <span id="calendar-label">Nepali</span>
+    </div>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nepali-date-converter@3.3.1/dist/nepali-date-converter.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
